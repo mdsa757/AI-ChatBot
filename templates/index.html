@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <div class="chat-container">
+
+    <!-- ── Header ── -->
+    <div class="chat-header">
+      <div class="header-title-group">
+        <h1 class="app-title">AI Assistant</h1>
+        <p class="app-subtitle">Powered by OpenAI</p>
+      </div>
+      <button
+        id="reset-btn"
+        aria-label="Reset conversation"
+      >Reset Chat</button>
+    </div>
+
+    <!-- ── Chat Window ── -->
+    <div
+      id="chat-window"
+      role="log"
+      aria-live="polite"
+      aria-label="Conversation"
+    >
+      <!-- Messages are injected here by script.js -->
+
+      <!-- Loading indicator — hidden by default -->
+      <div
+        id="loading-indicator"
+        class="message ai-message loading"
+        style="display:none"
+        aria-live="polite"
+        aria-label="AI is thinking"
+      >
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <!-- ── Input Area ── -->
+    <div class="chat-input-area">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Type your message..."
+        aria-label="Type your message"
+        autocomplete="off"
+        maxlength="2000"
+      />
+      <button
+        id="send-btn"
+        aria-label="Send message"
+      >Send</button>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
